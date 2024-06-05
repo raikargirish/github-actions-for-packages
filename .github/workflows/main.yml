@@ -1,8 +1,17 @@
-name: Hello world
-on: push
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
 jobs:
-  myjob: null
-  runs-on: ubuntu latest
-  steps:
-    name: mystep
-    run: Hello-world
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
